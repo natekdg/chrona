@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en"> <!-- langauge for webpage-->
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>chrona pomodoro</title>
+<link rel="stylesheet" href="chrona-design.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chivo:wght@300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+
+
+</head>
+<body>
+
+    <!-- this defines the chrona pomodoro time display. -->
+    <div id="chrona-pomodoro">
+        <div id="timer">
+            <span id="time">25:00</span>
+        </div>
+    </div>
+
+    <!-- this defines the control buttons for the chrona pomodoro. -->
+    <div id="controls">
+
+        <!-- start button -->
+        <button id="start">
+            <span class="material-symbols-outlined">play_circle</span>
+        </button>
+
+        <!-- stop button -->
+        <button id="stop">
+            <span class="material-symbols-outlined">stop_circle</span>
+        </button>
+
+        <!-- reset button -->
+        <button id="reset">
+            <span class="material-symbols-outlined">restart_alt</span>
+        </button>
+
+        <!-- settings button -->
+        <button id="settings">
+            <span class="material-symbols-outlined">settings</span>
+        </button>
+    </div>
+        
+        <!-- defines the time options for the chrona pomodoro, including different time intervals and corresponding data values. -->
+        <div id="time-options" class="time-dropdown" style="display: none;">
+            <div class="time-option" data-time="10">10:00</div>
+            <div class="time-option" data-time="15">15:00</div>
+            <div class="time-option" data-time="25">25:00</div>
+            <div class="time-option" data-time="30">30:00</div>
+            <div class="time-option" data-time="45">45:00</div>
+            <div class="time-option" data-time="60">60:00</div>
+        </div>
+    </div>
+</div>
+
+<script src="chiru-script.js"></script>
+
+<!-- create id for audio and preload from file-->
+<audio id="timer-end-sound" src="timer-tone/long-expected-548.mp3" preload="auto" >
+
+
+</body>
+</html>
