@@ -29,3 +29,49 @@ function updateDisplay() {
     // update timeDisplay to show the current time with leading zeros for minutes / seconds
     timeDisplay.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
 }
+
+// check if the timeRemaining is greater than zero
+function tick(){
+    if (timeRemaining > 0){
+        timeRemaining--;
+        updateDisplay
+    } else {
+        document.getElementById('sound to end timer (add)').play(); // play sound when time is 0
+        stopTimer();    // if the time is 0 stop the timer
+        timeDisplay.textContent = "good work :)";
+    }
+}
+
+// set the selected time in seconds based on the input minutes
+function selectTime(minutes) {
+    selectedTime = minutes * 60;    // convert the minutes to seconds
+}
+
+// funtion for starting the timer
+function startTimer() {
+    if (!isRunning) {
+        isRunning = true;
+        if (timeRemaining === 0) {
+            timeRemaining = selectedTime;   // set the time to the original selected time
+        }
+        timer = setInterval(tick, 1000);    // set interval to tick every 1000ms
+    }
+}
+
+// function for stopping the timer
+function stopTimer() {
+    if (isRunning) {
+        clearInterval(timer);   // clear the interval stored in the timer
+        isRunning = false;  // set isRunning to false to stop timer
+    }
+}
+
+// funtion for resetting the timer
+function resetTimer() {
+    stopTimer();
+    timeRemaining = selectedTime;   // reset the remaining time to what was originally selected
+    updateDisplay();
+}
+
+// update the display at the start
+updateDisplay();
