@@ -31,7 +31,7 @@ function updateDisplay() {
 }
 
 // check if the timeRemaining is greater than zero
-function tick(){
+function tick() {
     if (timeRemaining > 0){
         timeRemaining--;
         updateDisplay
@@ -75,3 +75,29 @@ function resetTimer() {
 
 // update the display at the start
 updateDisplay();
+
+// prompt user to allow/disable notifications from chrona
+document.addEventListener('DOMContentLoaded', (event) => {
+    if (Notification.permission !== "granted" && Notification.permission !== "denied"){
+        Notification.requestPermission().then(permission => {
+            if (permission === "granted") {
+                console.log("Noitications have been enabled from Chrona.");
+            }else {
+                console.log("Notifications have been disbale from Chrona.");
+            }
+        })
+    }
+})
+
+// this event listener closes dropdown menus with the class "time-dropdown" when a click occurs outside of specific elements.
+window.onclick = function(event) {
+    if (!event.target.matches('#time') && !event.target.matches('#settings') && !event.target.closest('#settings')) {
+        var dropdowns = document.getElementsByClassName("time-dropdown");   //receive time dropdowns
+        for (var i = 0; i < dropdowns.length; i++){
+            var openDropdown = dropdowns[i];    // set the dropdown to open up
+            if (openDropdown.style.display == "block") {
+                openDropdown.style.display = "none";
+            }
+        }   
+    }
+}
