@@ -34,7 +34,7 @@ function updateDisplay() {
 function tick() {
     if (timeRemaining > 0){
         timeRemaining--;
-        updateDisplay
+        updateDisplay();
     } else {
         document.getElementById('sound to end timer (add)').play(); // play sound when time is 0
         stopTimer();    // if the time is 0 stop the timer
@@ -89,15 +89,32 @@ document.addEventListener('DOMContentLoaded', (event) => {
     }
 })
 
+// event listener for when the timer change button is clicked
+settingsButton.addEventListener('click', function() {
+    const timeOptions = document.getElementById('time-options');
+    timeOptions.style.display = timeOptions.style.display === 'none' ? 'block' : 'none';
+});
+
 // this event listener closes dropdown menus with the class "time-dropdown" when a click occurs outside of specific elements.
 window.onclick = function(event) {
     if (!event.target.matches('#time') && !event.target.matches('#settings') && !event.target.closest('#settings')) {
-        var dropdowns = document.getElementsByClassName("time-dropdown");   //receive time dropdowns
-        for (var i = 0; i < dropdowns.length; i++){
-            var openDropdown = dropdowns[i];    // set the dropdown to open up
-            if (openDropdown.style.display == "block") {
+        var dropdowns = document.getElementsByClassName("time-dropdown"); // get all dropdowns
+        for (var i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i]; // set the dropdown to the open dropdown
+            if (openDropdown.style.display === "block") {
                 openDropdown.style.display = "none";
             }
-        }   
+        }
     }
-}
+};
+
+
+document.querySelectorAll('.time-option').forEach(item => {
+    item.addEventListener('click', function() {
+        let time = parseInt(this.getAttribute('data-time'));
+        selectTime(time);
+        timeRemaining = selectedTime;      // set the time to the selected time
+        updateDisplay();
+        document.getElementById('time-options').style.display = 'none';     // hide the dropdown
+    });
+});
