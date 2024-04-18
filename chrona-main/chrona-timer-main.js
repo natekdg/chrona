@@ -11,7 +11,6 @@ const timeDisplay = document.getElementById('time');    // set the element with 
 const startButton = document.getElementById('start');    // set the element with id "start" to the variable startButton
 const stopButton = document.getElementById('stop');     // set the element with id "stop" to the variable stopButton
 const resetButton = document.getElementById('reset');   // set the element with id "reset" to the variable resetButton
-const settingsButton = document.getElementById('settings');     // set the element with id "settings" to the variable settingButton
 
 
 startButton.addEventListener('click', startTimer)   // add event listener for the start button to call the startTimer function
@@ -88,33 +87,3 @@ document.addEventListener('DOMContentLoaded', (event) => {
         })
     }
 })
-
-// event listener for when the timer change button is clicked
-settingsButton.addEventListener('click', function() {
-    const timeOptions = document.getElementById('time-options');
-    timeOptions.style.display = timeOptions.style.display === 'none' ? 'block' : 'none';
-});
-
-// this event listener closes dropdown menus with the class "time-dropdown" when a click occurs outside of specific elements.
-window.onclick = function(event) {
-    if (!event.target.matches('#time') && !event.target.matches('#settings') && !event.target.closest('#settings')) {
-        var dropdowns = document.getElementsByClassName("time-dropdown"); // get all dropdowns
-        for (var i = 0; i < dropdowns.length; i++) {
-            var openDropdown = dropdowns[i]; // set the dropdown to the open dropdown
-            if (openDropdown.style.display === "block") {
-                openDropdown.style.display = "none";
-            }
-        }
-    }
-};
-
-
-document.querySelectorAll('.time-option').forEach(item => {
-    item.addEventListener('click', function() {
-        let time = parseInt(this.getAttribute('data-time'));
-        selectTime(time);
-        timeRemaining = selectedTime;      // set the time to the selected time
-        updateDisplay();
-        document.getElementById('time-options').style.display = 'none';     // hide the dropdown
-    });
-});

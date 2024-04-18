@@ -20,35 +20,6 @@ body, html {
     text-align: center;
 }
 
-
-/* time dropdown main styling*/
-.time-dropdown {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%); /* center the drop */
-    min-width: 160px;   /* set minimum width to 160 */
-    top: 60%;  /* put the drop down right below the buttons */
-    margin-top: 5px; /* space between timer and dropdown */
-    border-radius: 5px;
-    z-index: 1000; /* make sure above content */
-    display: none; /* hidden first */
-    background-color: #2B2B2B; /* dark backround for drop */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-}
-
-/* time dropdown styling */
-.time-option {
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-align: center;
-    text-decoration: none;
-    display: block;
-    color: #E0E0E0; /* light color for contrast */
-    border-bottom: 1px solid #464646; /* options border/divider */
-    font-size: 20px;
-    font-family: 'Chivo', sans-serif;
-}
-
 .time-option:hover {
     background-color: #383838;
 }
@@ -76,7 +47,7 @@ body, html {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin-right: 5px; /* space between buttons */
+    margin-right: 8px; /* space between buttons */
     user-select: none;
     display: inline-flex;
     background-color: #7b7979; /* light grey background */
