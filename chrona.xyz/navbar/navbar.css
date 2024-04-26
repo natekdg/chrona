@@ -1,0 +1,26 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    color: white;
+    padding: 10px 0;
+    background-color: transparent; /* Remove background color */
+    z-index: 1000; /* Ensure it's above other content */
+}
+
+.navbar ul {
+    list-style-type: none;
+    display: flex;
+}
+
+.navbar li {
+    margin: 20px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: white;
+}
