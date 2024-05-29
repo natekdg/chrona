@@ -34,7 +34,7 @@ body, html {
     color: #ffffff; /* light text color for contrast */
     background-color: #33333300; /* dark background for the timer */
     font-family: 'Chivo', sans-serif;
-    font-size: 45px; /* adjust as needed */
+    font-size: 75px; /* adjust as needed */
     top: 0;
     margin-bottom: 20px;
 }   
@@ -43,7 +43,7 @@ body, html {
 #controls button {
     transition: background-color 0.3s ease, transform 0.3s ease, opacity 0.3s ease, font-size 0.3s ease;
     align-items: center;
-    padding: 5px 10px;
+    padding: 12px 25px; /* length / width */
     border: none;
     border-radius: 5px;
     cursor: pointer;
