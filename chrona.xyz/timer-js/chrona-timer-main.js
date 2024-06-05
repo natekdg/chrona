@@ -35,7 +35,7 @@ function tick() {
         timeRemaining--;
         updateDisplay();
     } else {
-        document.getElementById('sound to end timer (add)').play(); // play sound when time is 0
+        document.getElementById('timer-end-sound').play(); // play sound when time is 0
         stopTimer();    // if the time is 0 stop the timer
         timeDisplay.textContent = "good work :)";
     }
@@ -77,13 +77,17 @@ updateDisplay();
 
 // prompt user to allow/disable notifications from chrona
 document.addEventListener('DOMContentLoaded', (event) => {
-    if (Notification.permission !== "granted" && Notification.permission !== "denied"){
+    const notificationPermission = localStorage.getItem('notificationPermission');
+
+    if (notificationPermission !== "granted" && notificationPermission !== "denied") {
         Notification.requestPermission().then(permission => {
             if (permission === "granted") {
-                console.log("Noitications have been enabled from Chrona.");
-            }else {
-                console.log("Notifications have been disbale from Chrona.");
+                console.log("Notifications have been enabled from Chrona.");
+            } else {
+                console.log("Notifications have been disabled from Chrona.");
             }
-        })
+            // store the user's permission choice in local storage
+            localStorage.setItem('notificationPermission', permission);
+        });
     }
-})
+});
